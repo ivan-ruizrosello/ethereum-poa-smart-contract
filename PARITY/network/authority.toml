@@ -1,0 +1,208 @@
+# configuracion general del cliente
+[parity]
+# usamos el ultimo modo abierto
+mode = "last"
+# modos dark y passive
+# nodo sincronizado entra en hibernacion
+mode_timeout = 300
+mode_alarm = 3600
+# actualizaciones
+auto_update = "critical"
+release_track = "current"
+public_node = false
+no_download = false
+# forzamos parity a ir aun con problemas
+# en el consenso
+no_consensus = false
+# cola de txs volatil
+no_persistent_txqueue = false
+# fichero configuracion
+#chain = "$HOME/.local/share/io.parity.ethereum"
+chain = "./spec.json"
+# ubicacion carpetas parity
+#base_path = "$HOME/.local/share/io.parity.ethereum"
+base_path = "./tmp"
+#db_path = "$HOME/.local/share/io.parity.ethereum/chains"
+db_path = "./tmp/chains"
+#keys_path = "$HOME/.local/share/io.parity.ethereum/keys"
+keys_path = "./tmp/keys"
+# nombre del nodo (tu nick)
+identity = ""
+# light node
+light = false
+
+# configuracion de la cuenta principal del nodo
+[account]
+# cuenta siempre desbloqueada para la creacion de bloques
+unlock = ["0xca85a29d61a75a2c360f12fbcc6bddcd5c2cf0c6"]
+password = ["pass"]
+# iteraciones al derivar la clave de la password
+keys_iterations = 10240
+
+# configuracion de la red del nodo
+[network]
+# puerto de conexion al nodo
+port = 30303
+# minimo conexiones para tener un estado saludable
+# minimo de peers que intenta mantener
+min_peers = 5
+# maximo de conexiones soportadas
+max_peers = 20
+# metodo para determinar las direcciones publicas
+nat = "any"
+# identificador de la red donde estamos
+id = 2223
+# nodos de discovery
+bootnodes = [
+    "enode://de85ff5b08ea5a5e62fe5ddfb00aa998e334c98aa766ab6bea39152fa7be1295dced078fd699882e8ab87e73e15f9c15aaca9e16396b4205630aa7e374f0907f@192.168.100.131:30303"
+]
+# habilitar descubrimiento de nuevos peers
+discovery = true
+# sincronizacion desde snapshot
+warp = true
+# filtro de conexiones
+allow_ips = "all"
+# peers adicionales para snapshot
+snapshot_peers = 0
+# maximo de peers esperando conexion
+max_pending_peers = 64
+# no dar servicio a clientes ligeros
+no_serve_light = false
+# conectarse solo a peers reservados
+reserved_only = false
+# ruta a la lista de peers reservados
+#reserved_peers = "./reserved.txt"
+
+# configuracion de las llamadas a procedimientos remotos
+[rpc]
+disable = false
+port = 8540
+# hostname del servidor http
+interface = "local"
+# cors headers para las respuestas http
+cors = ["all"]
+# apis permitidas
+apis = ["web3", "eth", "pubsub", "net", "parity", "personal", "parity_pubsub", "traces", "rpc", "shh", "shh_pubsub"]
+# lista de hosts permitidos, valida el host header enviado por el navegador
+hosts = ["all"]
+
+[websockets]
+disable = true
+port = 8546
+interface = "local"
+# cabezeras de origen permitidas 
+origins = ["none"]
+apis = ["web3", "eth", "pubsub", "net", "parity", "parity_pubsub", "traces", "rpc", "shh", "shh_pubsub"]
+hosts = ["none"]
+
+# [ipc]
+# disable = false
+# path = "$HOME/.local/share/io.parity.ethereum/jsonrpc.ipc"
+# apis = ["web3", "eth", "pubsub", "net", "parity", "parity_pubsub", "parity_accounts", "traces", "rpc", "shh", "shh_pubsub"]
+
+# Compartir secretos con claves generadas de forma distribuida
+# [secretstore]
+# disable = false
+# nodes = []
+# http_interface = "local"
+# http_port = 8082
+# interface = "local"
+# port = 8083
+# path = "$HOME/.local/share/io.parity.ethereum/secretstore"
+
+# [ipfs]
+## Activa una api http compatible con ipfs
+## medio abandonado
+# enable = false
+# port = 5001
+# interface = "local"
+# cors = []
+# hosts = ["none"]
+
+# configuracion de la creacion de bloques
+[mining]
+# especifica el autor de los bloques para enviar la recompensa
+#author = "0x98194702727bac2d5fedfa905957e959c5bd0723"
+author = "0xca85a29d61a75a2c360f12fbcc6bddcd5c2cf0c6"
+# especifica la direccion que se usara para el consenso y los bloques
+#engine_signer = "0x98194702727bac2d5fedfa905957e959c5bd0723"
+engine_signer = "0xca85a29d61a75a2c360f12fbcc6bddcd5c2cf0c6"
+# fuerza al nodo a crear siempre nuevos bloques
+force_sealing = true
+# sella todas las txs, crea un bloque aunque no haya transacciones
+reseal_on_txs = "all"
+# tiempo minimo entre sellados de txs entrantes
+reseal_min_period = 4000
+# tiempo maximo desde la creacion del ultimo bloque, activa force-sealing
+reseal_max_period = 60000
+# mining gpu
+work_queue_size = 20
+# reenvia cualquier txs o solo las minadas de la cola
+relay_set = "cheap"
+# cantidad de dolares a pagar por tx
+usd_per_tx = "0"
+# precio en dolares del ETH
+usd_per_eth = "auto"
+# cada cuanto mirar el precio del ETH
+price_update_period = "hourly"
+# cantidad de gas a alcanzar para sellar un bloque
+gas_floor_target = "12000000"
+# maximo que el limite de gas puede subir al sellar un nuevo bloque
+gas_cap = "14000000"
+# maximo de transacciones en la cola de tx
+tx_queue_size = 8192
+# como ordenamos las tx en la cola (las tx con un precio del gas mayor)
+tx_queue_strategy = "gas_price"
+# maximo de gas que una tx puede tener para ser minada
+tx_gas_limit = "6283184"
+tx_time_limit = 100 #ms
+# Dato extra que puede contener un bloque
+extra_data = "GeeksHubs"
+# mining gpu
+remove_solved = false
+notify_work = ["http://localhost:3001"]
+# aceptar transacciones con coste zero (redes donde algunas no son gratis)
+refuse_service_transactions = false
+
+[footprint]
+# indica si hay que tracear toda una transaccion
+# solo si se ha realizado en sync con trace y full
+tracing = "auto"
+# elimina partes redundantes del arbol de estado/memoria
+pruning = "auto"
+# minimo de estados para guardar en memoria
+pruning_history = 64
+# almenos n estados seran guardados
+pruning_memory = 32
+# tamaño de la cache de la base de datos
+cache_size_db = 128
+# preferencias de tamaño de la cache del nodo
+cache_size_blocks = 8
+# tamaño maximo de la cola de bloques
+cache_size_queue = 40
+# tamaño maximo de la cache de estados
+cache_size_state = 25
+# borra todas las anteriores, suma maxima de la memoria a usar del sistema
+cache_size = 128 # Overrides above caches with total size
+# db ssd optimization
+fast_and_loose = false
+db_compaction = "ssd"
+# guarda informacion adicional de todas las cuentas
+# casi duplica el tamaño de la base de datos
+fat_db = "auto"
+scale_verifiers = true
+num_verifiers = 6
+
+# snapshots occurs by default every 1000 blocks
+[snapshots]
+# snapshots activadas
+disable_periodic = false
+
+# otros parametros
+[misc]
+# logging
+logging = "own_tx=trace"
+# destinacion del log
+#log_file = "/var/log/parity.log"
+# imprimimos los diferentes logs con colores
+color = true
