@@ -1,0 +1,40 @@
+version: '3'
+
+services: 
+  node_1: 
+    image: parity/parity:v2.3.4
+    command: --config authority.toml --jsonrpc-apis all --geth --logging=rpc=trace
+    working_dir: /usr/src/network
+    volumes: 
+      - ./network:/usr/src/network
+    ports: 
+      - 30303:30303
+      - 8540:8540
+      - 8546:8546
+    networks:
+      parity_nodes:
+    #     ipv4_address: 172.28.1.1
+  
+  node_2: 
+    image: parity/parity:v2.3.4
+    depends_on: 
+      - node_1
+    command: --config authority.toml --jsonrpc-apis all --geth --logging=rpc=trace
+    working_dir: /usr/src/network
+    volumes: 
+      - ./network2:/usr/src/network
+    ports: 
+      - 30304:30304
+      - 8541:8541
+      - 8547:8547
+    networks:
+      parity_nodes:
+    #     ipv4_address: 172.28.1.2
+
+networks: 
+  parity_nodes:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
+

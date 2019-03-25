@@ -4,6 +4,11 @@
 
 ~/.local/share/io.parity.ethereum/keys/ethereum
 
+UTC KEYS:
+Mac OS X: ~/Library/Application\ Support/io.parity.ethereum/keys/ethereum/
+Linux: $HOME/.local/share/io.parity.ethereum/keys
+Windows 7/10: %HOMEPATH%/AppData/Roaming/Parity/Ether
+
 ## Consejos
 
 - network/spec.json:
@@ -19,7 +24,4 @@ parity --config authority.toml --jsonrpc-apis all --geth --logging=rpc=trace
 
 0xCAFE -> 08h en hexadecimal
 
-UTC KEYS:
-Mac OS X: ~/Library/Application\ Support/io.parity.ethereum/keys/ethereum/
-Linux: $HOME/.local/share/io.parity.ethereum/keys
-Windows 7/10: %HOMEPATH%/AppData/Roaming/Parity/Ethereum/keys
+eum/keys
