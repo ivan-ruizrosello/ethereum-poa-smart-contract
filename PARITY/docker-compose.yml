@@ -13,8 +13,8 @@ services:
       - 8546:8546
     networks:
       parity_nodes:
-    #     ipv4_address: 172.28.1.1
-  
+        ipv4_address: 172.28.0.4
+      
   node_2: 
     image: parity/parity:v2.3.4
     depends_on: 
@@ -29,12 +29,11 @@ services:
       - 8547:8547
     networks:
       parity_nodes:
-    #     ipv4_address: 172.28.1.2
-
+        ipv4_address: 172.28.0.3
+  
 networks: 
   parity_nodes:
     ipam:
       driver: default
       config:
         - subnet: 172.28.0.0/16
-
