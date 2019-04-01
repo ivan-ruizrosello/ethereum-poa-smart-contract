@@ -1,0 +1,49 @@
+[parity]
+chain = "dev"
+base_path = "db.ss3"
+
+[rpc]
+disable = true
+
+[ipc]
+disable = true
+
+[websockets]
+disable = true
+
+[network]
+port = 30303
+bootnodes = [
+    "enode://fa158334305a0d118f19abc9004f123ad806043890d4d46cbd4b8f30ac3bbbcea53af7838db35d5dc9557750c667a3144c899624385ba273ca08284480fce662@127.0.0.1:30300",
+    "enode://8ed7144f0bc0bd0a99060f4f91df93364f3e92c4f7a86572e7d9cd5c715f1c557438b0a03c15b90ac5e1cf356b3c12152bb25fd26258a42f8081b6406fd92466@127.0.0.1:30301",
+    "enode://952e5746da6641540eaf23d612e3707836ea7fd46290710ab676cb97456ec92958d04b4aa02b3f994e9c9eb9707d7f628ac26ea1697959f0afe3656114b81c78@127.0.0.1:30302",
+    "enode://b7194743946446448cf8e3eb83aae18ba23b3e9bb6f5eb6723b77e73853dc0cb2d360302a4b4300d3efa679f65b73ad8512647a81b33823f8bc2f0f2a06b3a3e@127.0.0.1:30303"
+]
+[ipfs]
+enable = false
+
+[snapshots]
+disable_periodic = true
+
+[secretstore]
+self_secret = "3bf72845c818e42f342f4e026aaaf853f89c9222"
+disable = false
+disable_http = true      # This node will expose a Secret Store HTTP API
+# Direccion del contrato SSPermissions.sol
+acl_contract = "6611d1ab25708e414d8d5891489ffca8f81bff1f"     # Insecure, will be changed later on
+# acl_contract = "none"
+server_set_contract = "none"
+nodes = [
+    "5023b81845e760a3c8a4a99e732dab2948ac7f882567c6bd39276df74eec815eb3e5cb9e3c9d831966579896f734be307b84b5667c04a71aeee55ecdc64d86de@127.0.0.1:8011",
+    "1d17fe1904945bf81207979aacf0eedd77a93d07bd457db62ee4b1de9ba5abfd7cddcf17ac8ccf529dff02091c71b48a858103479a1a72f08ce9afdbd5739b84@127.0.0.1:8012",
+    "a118744260becb757ac0704abf5cf5a77419032e208993c3befbec490cd99856d2b1cfdd33c8d144bdc77eff6c3e120ec76dd7c346f63f38b096721281f9f945@127.0.0.1:8013"
+    # "82fcc11be667971ed241fcde38a769079aea26ebeb674746b928ddb96dc0675158c141e89c0ed15e8a5e718a971e16dd184ba42f9242a7638f2318e934641e2f@127.0.0.1:8011",
+    # "dc74614c5b55eca3b19216bc5308d8e5dab477315d2981cf12ff63a918449c144e336e6c1283b37cb0563863eba7b1b057032206c4aa3047008ec3e9635208af@127.0.0.1:8012",
+    # "4a8b520ba07472dfce94e646aa0962b82520451477a41e309bc574ac2abcb53f3cfb5343d7d3d8014f793eb680d6bd8e6ddb5e187e87e717fe1b7d95b9473725@127.0.0.1:8013"
+]
+interface = "local"
+port = 8013               # port used to communicated with other Secret Store nodes
+path = "db.ss3/secretstore"
+
+[account]
+password = ["ss3.pwd"]

@@ -1,0 +1,4 @@
+parity/
+
+**/db.*/*
+!**/db.*/keys

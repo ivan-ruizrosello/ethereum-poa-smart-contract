@@ -1,0 +1,1 @@
+../../parity/target/release/parity --config ss2.toml

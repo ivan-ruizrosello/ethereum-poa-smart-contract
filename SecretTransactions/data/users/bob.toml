@@ -1,0 +1,38 @@
+# File users.toml
+# Can be used by any user
+
+[parity]
+chain = "dev"
+base_path = "db.bob"
+
+[rpc]
+disable = true
+
+[websockets]
+disable = true
+
+[secretstore]
+disable = true # users do not run a secret store node
+
+[private_tx]
+enabled = true                                                # Enable private transactions.
+validators = ["0x36dfacb13c4985a1de236b57394d4b3745eee507"]   # Bob's account as a validator
+account = "0x36dfacb13c4985a1de236b57394d4b3745eee507"        # Bob's address to signing requests sent to the Secret Store.
+passwords = "bob.pwd"                                         # File containing the password to unlock Bob's accounts (signer, private account, validators).
+sstore_url = "http://127.0.0.1:8010"                          # Secret Store URL used for encrypting private transactions.
+
+
+[network]
+port = 30304
+bootnodes = [
+    "enode://fa158334305a0d118f19abc9004f123ad806043890d4d46cbd4b8f30ac3bbbcea53af7838db35d5dc9557750c667a3144c899624385ba273ca08284480fce662@127.0.0.1:30300",
+    "enode://d35ea9296be398772e00358b9dc471aef9fc8a42c554cfdc7c9968f067a09ce9ab9bb70fdea1f8bc4d9c9ca710777cb0fe2ac0ae1523f7afb014919fd68359cd@127.0.0.1:30300",
+    "enode://8ed7144f0bc0bd0a99060f4f91df93364f3e92c4f7a86572e7d9cd5c715f1c557438b0a03c15b90ac5e1cf356b3c12152bb25fd26258a42f8081b6406fd92466@127.0.0.1:30301",
+    "enode://952e5746da6641540eaf23d612e3707836ea7fd46290710ab676cb97456ec92958d04b4aa02b3f994e9c9eb9707d7f628ac26ea1697959f0afe3656114b81c78@127.0.0.1:30302",
+    "enode://b7194743946446448cf8e3eb83aae18ba23b3e9bb6f5eb6723b77e73853dc0cb2d360302a4b4300d3efa679f65b73ad8512647a81b33823f8bc2f0f2a06b3a3e@127.0.0.1:30303",
+    "enode://782e228b55c979ed7f4fddd433e51b2ba5f1c2367573c15b24e66f00473a84674e0572c566453494b58108d272a469446c3888600b0abdc05ac0ff48847cbf55@127.0.0.1:30304"
+]
+
+[account]
+unlock = ["0x36dfacb13c4985a1de236b57394d4b3745eee507"] # only for smart contract
+password = ["bob.pwd"]

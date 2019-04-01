@@ -1,0 +1,1 @@
+../../parity/target/release/parity --config alice.toml
