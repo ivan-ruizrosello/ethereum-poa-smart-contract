@@ -54,7 +54,7 @@ nat = "any"
 id = 2223
 # nodos de discovery
 bootnodes = [
-    "enode://de85ff5b08ea5a5e62fe5ddfb00aa998e334c98aa766ab6bea39152fa7be1295dced078fd699882e8ab87e73e15f9c15aaca9e16396b4205630aa7e374f0907f@172.28.0.4:30303"
+    "enode://de85ff5b08ea5a5e62fe5ddfb00aa998e334c98aa766ab6bea39152fa7be1295dced078fd699882e8ab87e73e15f9c15aaca9e16396b4205630aa7e374f0907f@node_1:30303"
 ]
 # habilitar descubrimiento de nuevos peers
 discovery = true
